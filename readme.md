@@ -52,8 +52,6 @@ User Interface Design: I experimented with CSS styling to make the buttons and l
 
 Debugging and Troubleshooting: While facing challenges with the dragging functionality, I learned the importance of debugging and careful analysis of code to identify issues and find solutions.
 
-Version Control: Using Git and GitHub for version control allowed me to track changes and collaborate effectively on the project.
-
 Overall, this project was a rewarding experience that improved my front-end development skills and taught me about the iterative nature of coding. It reinforced the value of patience, persistence, and seeking help when needed.
 
 Feel free to explore and further enhance the project to apply additional features or design improvements.
