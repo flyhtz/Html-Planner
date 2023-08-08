@@ -4,9 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const finishedList = document.getElementById("finished-tasks");
     const addTaskButton = document.getElementById("add-task-button");
     const clearFinishedButton = document.getElementById("clear-finished-button");
-
+    const toggleButton = document.getElementById('toggle-dark-mode');
+    const sections = document.querySelectorAll('.section');
+    let isDarkMode = JSON.parse(localStorage.getItem("darkMode")) || false;
+    
     const tasks = JSON.parse(localStorage.getItem("tasks")) || { planned: [], doing: [], finished: [] };
-
+    
     function displayTasks() {
         plannedList.innerHTML = "";
         doingList.innerHTML = "";
@@ -16,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         tasks.doing.forEach(task => addTask(doingList, task, "doing"));
         tasks.finished.forEach(task => addTask(finishedList, task, "finished"));
     }
+
 
     function addTask(list, taskText, currentStatus) {
         const taskItem = document.createElement("li");
@@ -64,5 +68,25 @@ document.addEventListener("DOMContentLoaded", function() {
         displayTasks();
     });
 
+    toggleButton.addEventListener('click', () => {
+        isDarkMode = !isDarkMode;
+        document.body.classList.toggle('dark-mode', isDarkMode);
+        
+        sections.forEach(section => {
+            section.classList.toggle('dark-mode', isDarkMode);
+        });
+    
+        localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+    });
+
+  function initializeDarkMode() {
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    
+    sections.forEach(section => {
+        section.classList.toggle('dark-mode', isDarkMode);
+    });
+    }
+
+    initializeDarkMode();
     displayTasks();
 });
