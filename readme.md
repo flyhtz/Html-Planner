@@ -13,10 +13,10 @@ This is a simple task tracking website that allows you to manage tasks in three 
 ## Features
 
 - Add tasks to the "Planned" section.
-- Move tasks from "Planned" to "Doing," and from "Doing" to "Finished."
 - Clear all tasks from the "Finished" section.
 - Easy-to-use interface with a clean design.
 - Local storage support to retain tasks between sessions.
+- Darkmode which saves its state so when u relaunch the app it will still be in dark- lightmode
 
 ## Usage
 
