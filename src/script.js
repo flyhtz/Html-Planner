@@ -86,6 +86,31 @@ document.addEventListener("DOMContentLoaded", function() {
         section.classList.toggle('dark-mode', isDarkMode);
     });
     }
+    
+    addTaskButton.addEventListener("click", () => {
+        const taskName = prompt("Enter the task name:");
+        if (taskName) {
+            addNewTask(taskName);
+        }
+    });
+    
+    // Add Multiple Tasks button logic
+    const addMultipleTasksButton = document.getElementById("add-multiple-tasks-button");
+    addMultipleTasksButton.addEventListener("click", () => {
+        const tasksText = prompt("Enter the task names separated by commas:");
+        if (tasksText) {
+            const taskNames = tasksText.split(',').map(task => task.trim()).filter(task => task !== '');
+            addMultipleTasks(taskNames);
+        }
+    });
+    
+    function addMultipleTasks(taskNames) {
+        taskNames.forEach(taskName => {
+            tasks.planned.push(taskName);
+        });
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        displayTasks();
+    }
 
     initializeDarkMode();
     displayTasks();
